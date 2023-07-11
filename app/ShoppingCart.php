@@ -17,7 +17,9 @@ class ShoppingCart
 
     function removeItem($itemId)
     {
-        unset($this->items[$itemId]);
+        if (isset($this->items[$itemId])) {
+            unset($this->items[$itemId]);
+        }
     }
 
     function calculateTotal()
@@ -41,5 +43,5 @@ $cart = new ShoppingCart();
 $cart->addItem(array('id' => 1, 'name' => 'Item 1', 'price' => 20.5));
 $cart->addItem(array('id' => 2, 'name' => 'Item 2', 'price' => 10.0));
 
-$cart->removeItem(3);
+$cart->removeItem(2);
 $cart->checkout();
