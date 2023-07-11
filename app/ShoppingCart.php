@@ -3,45 +3,46 @@ namespace App;
 
 class ShoppingCart
 {
-    private $items;
+    /** @var Product[] $items */
+    private array $items;
 
-    function __construct()
+    public function __construct()
     {
-        $this->items = array();
+        $this->items = [];
+    }
+   /**
+     * @return Product[]
+     */
+    public function items(): array
+    {
+        return $this->items;
     }
 
-    function addItem($item)
+     public function addItem(Product $item): void
     {
-        $this->items[$item['id']] = $item;
+        $this->items[$item->id] = $item;
     }
 
-    function removeItem($itemId)
+    public function removeItem(int $itemId): void
     {
         if (isset($this->items[$itemId])) {
             unset($this->items[$itemId]);
         }
     }
 
-    function calculateTotal()
+    function calculateTotal(): float
     {
         $total = 0;
         foreach ($this->items as $item) {
-            $total += $item['price'];
+            $total += $item->price;
         }
-        echo "Total: $total";
+        return $total;
     }
 
-    function checkout()
+    function checkout(): string
     {
-        $this->calculateTotal();
+        $total = $this->calculateTotal();
         $this->items = array();
+        return 'Total: ' . $total;
     }
 }
-
-$cart = new ShoppingCart();
-
-$cart->addItem(array('id' => 1, 'name' => 'Item 1', 'price' => 20.5));
-$cart->addItem(array('id' => 2, 'name' => 'Item 2', 'price' => 10.0));
-
-$cart->removeItem(2);
-$cart->checkout();
