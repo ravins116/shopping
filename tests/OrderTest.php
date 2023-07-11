@@ -5,7 +5,7 @@ use App\Order;
 
 final class OrderTest extends TestCase
 {
-    public function testShippingInitalizedWithHello()
+    public function testOrderProperties()
     {
         $item1 = new Item(0.5, 2, 10.0);
         $item2 = new Item(1.5, 3, 20.0);
