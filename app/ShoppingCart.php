@@ -1,30 +1,39 @@
-<?php class ShoppingCart {
-  private $items;
+<?php
+namespace App;
 
-  function __construct() {
-    $this->items = array();
-  }
+class ShoppingCart
+{
+    private $items;
 
-  function addItem($item) {
-    $this->items[$item['id']] = $item;
-  }
-
-  function removeItem($itemId) {
-    unset($this->items[$itemId]);
-  }
-
-  function calculateTotal() {
-    $total = 0;
-    foreach($this->items as $item) {
-      $total += $item['price'];
+    function __construct()
+    {
+        $this->items = array();
     }
-    echo "Total: $total";
-  }
 
-  function checkout() {
-    $this->calculateTotal();
-    $this->items = array();
-  }
+    function addItem($item)
+    {
+        $this->items[$item['id']] = $item;
+    }
+
+    function removeItem($itemId)
+    {
+        unset($this->items[$itemId]);
+    }
+
+    function calculateTotal()
+    {
+        $total = 0;
+        foreach ($this->items as $item) {
+            $total += $item['price'];
+        }
+        echo "Total: $total";
+    }
+
+    function checkout()
+    {
+        $this->calculateTotal();
+        $this->items = array();
+    }
 }
 
 $cart = new ShoppingCart();
