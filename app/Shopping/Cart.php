@@ -18,7 +18,7 @@ class Cart
         return $this->items;
     }
 
-    public function addItem($item): void
+    public function addItem(Product $item): void
     {
         $this->items[$item->id] = $item;
     }
