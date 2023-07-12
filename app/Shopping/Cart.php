@@ -1,7 +1,7 @@
 <?php
-namespace App;
+namespace App\Shopping;
 
-class ShoppingCart
+class Cart
 {
     /** @var Product[] $items */
     private array $items;
@@ -10,7 +10,7 @@ class ShoppingCart
     {
         $this->items = [];
     }
-   /**
+    /**
      * @return Product[]
      */
     public function items(): array
@@ -18,7 +18,7 @@ class ShoppingCart
         return $this->items;
     }
 
-     public function addItem(Product $item): void
+    public function addItem($item): void
     {
         $this->items[$item->id] = $item;
     }

@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use App\Item;
+use App\Purchase\Item;
 final class ItemTest extends TestCase {
     public function testItemProperties() {
        $item = new Item(0.5, 2, 10.0);

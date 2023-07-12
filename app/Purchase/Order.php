@@ -1,8 +1,9 @@
 <?php
-namespace App;
+namespace App\Purchase;
 
 class Order
-{ /** @var Item[] $items */
+{
+    /** @var Item[] $items */
     private array $items;
     private float $weight = 0;
     private float $price = 0;
@@ -16,12 +17,12 @@ class Order
         $this->calculateTotals();
     }
 
-    public function price(): float 
+    public function price(): float
     {
         return $this->price;
     }
 
-    public function shippingPrice(): int 
+    public function shippingPrice(): int
     {
         return $this->shipping;
     }
@@ -40,7 +41,7 @@ class Order
         $this->shipping = $this->shippingCost();
     }
 
-    private function shippingCost(): int 
+    private function shippingCost(): int
     {
         return ($this->weight < 1) ? 5 : (($this->weight < 5) ? 10 : (($this->weight < 20) ? 20 : 50));
     }

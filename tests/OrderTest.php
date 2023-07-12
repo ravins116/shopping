@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use App\Item;
-use App\Order;
+use App\Purchase\Item;
+use App\Purchase\Order;
 
 final class OrderTest extends TestCase
 {

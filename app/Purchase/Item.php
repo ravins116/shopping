@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Purchase;
 
 class Item
 {
